@@ -28,7 +28,21 @@ const studentSchema = new mongoose.Schema({
   appliedJobs: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Job'
-  }]
+  }],
+  role: {
+    type: String,
+    default: STUDENT
+  },
+  createdAt: {
+    type: Date,
+    default: Date
+  },
+  updatedAt: {
+    type: Date,
+    default: () => {
+        return Date.now();
+    }
+},
 });
 
 

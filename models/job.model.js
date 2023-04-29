@@ -19,11 +19,24 @@ const jobSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Company',
     required: true
-  }
+  },
+  applicants: {
+    type: Array,
+    default: []
+  },
+  createdAt: {
+    type: Date,
+    default: Date
+  },
+    updatedAt: {
+    type: Date,
+    default: () => {
+        return Date.now();
+    }
+},
 });
 
 // Creating a model for each schema
-
 const Job = mongoose.model('Job', jobSchema);
 
 
